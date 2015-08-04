@@ -18,8 +18,7 @@ var Blog = React.createClass({
     componentWillMount: function() {
         var self = this;
         if(this.props.count) {
-            $.getJSON("http://baconipsum.com/api/?type=all-meat&sentences=" +
-                this.props.count + "&start-with-lorem=1&callback=?", function(results){
+            $.getJSON("http://localhost:3000", function(results){
                     results[0].split('. ').forEach(function(sentence){
                         self.add(sentence.substring(0,80));
                     });
