@@ -1,4 +1,5 @@
-//= require jquery-ui
+//= require jquery
+//= require bootstrap-sprockets
 //= require fluxxor
 //= require react
 //= require react_ujs

@@ -18,7 +18,7 @@ var Blog = React.createClass({
     componentWillMount: function() {
         var self = this;
         if(this.props.count) {
-            $.getJSON("http://localhost:3000", function(results){
+            $.getJSON("http://localhost:3000/posts.json", function(results){
                     results[0].split('. ').forEach(function(sentence){
                         self.add(sentence.substring(0,80));
                     });

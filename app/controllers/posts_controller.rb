@@ -3,6 +3,7 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.all.to_json
+    render :index, layout: 'application'
   end
 
   def show

@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%= stylesheet_link_tag 'application' %>
+    <title>React Blog</title>
+</head>
+<body>
+  <div id="react-container">
+    <%= yield %>
+  </div>
+  <div id="root"></div>
+  <%= javascript_include_tag "application" %>
+</body>
+</html>

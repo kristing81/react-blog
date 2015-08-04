@@ -1,7 +1,6 @@
-/*
- *= require jquery-ui
- */
-@import url(http://fonts.googleapis.com/css?family=Shadows+Into+Light);
+@import "jquery-ui";
+@import "bootstrap-sprockets";
+@import "bootstrap";
 
 body,
 html,
@@ -50,7 +49,7 @@ div.post:active {
 div.post p {
     font-size: 22px;
     padding: 5px;
-    font-family: "Shadows Into Light", Arial;
+    font-family: "Open Sans", sans-serif;
 }
 
 div.post:hover > span {
