@@ -3,11 +3,6 @@ var Post = React.createClass({
         return {editing: false}
     },
     componentWillMount: function(){
-        this.style = {
-            right: this.randomBetween(0, window.innerWidth - 450) + 'px',
-            top: this.randomBetween(0, window.innerHeight - 450) + 'px',
-            transform: 'rotate(' + this.randomBetween(-10, 10) + 'deg)'
-        };
     },
     componentDidMount: function() {
         $(this.getDOMNode()).draggable();
@@ -114,9 +109,14 @@ var Blog = React.createClass({
     },
     render: function() {
         return (<div className="blog">
+                    <div className="row">
+                    <div className="col-md-8">
                     {this.state.posts.map(this.eachPost)}
+
                     <button className="btn btn-sm btn-success glyphicon glyphicon-plus" 
                             onClick={this.add.bind(null, "New Post")}/>
+                            </div>
+                    </div>
         </div>
         );
     }
