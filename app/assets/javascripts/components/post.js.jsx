@@ -1,14 +1,15 @@
 var Post = React.createClass({
+    propTypes: {
+        title: React.PropTypes.string,
+        body: React.PropTypes.string,
+    },
     getInitialState: function() {
         return {editing: false}
     },
     componentWillMount: function(){
     },
     componentDidMount: function() {
-        $(this.getDOMNode()).draggable();
-    },
-    randomBetween: function(min, max) {
-        return(min + Math.ceil(Math.random() * max));
+        $(this.getDOMNode());
     },
     edit: function() {
         this.setState({editing: true});
