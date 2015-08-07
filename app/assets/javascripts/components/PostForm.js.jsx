@@ -1,4 +1,5 @@
 window.PostForm = React.createClass({
+
   render: function() {
     var errors = null;
     if(this.props.errors.length > 0) {
@@ -33,3 +34,6 @@ window.PostForm = React.createClass({
     );
   }
 });
+
+
+
