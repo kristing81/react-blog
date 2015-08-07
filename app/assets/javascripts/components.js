@@ -1,2 +1,1 @@
-//= require components/blog
-//= require components/post
+//= require_tree ./components
