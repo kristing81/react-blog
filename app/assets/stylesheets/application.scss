@@ -4,19 +4,8 @@
 
 body,
 html,
-div.blog,
 div#react-container {
     height: 100%;
-    overflow: hidden;
-}
-
-body {
-    margin: 0;
-    padding: 0;
-}
-
-div.blog {
-    background-color: brown;
     width: 100%;
     background: #004C66;
     background: -moz-radial-gradient(center, ellipse cover, #337085 57%, #004C66 99%);
@@ -26,9 +15,26 @@ div.blog {
     background: -ms-radial-gradient(center, ellipse cover, #337085 57%, #004C66 99%);
     background: radial-gradient(ellipse at center, #337085 57%, #004C66 99%);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#337085', endColorstr='#004C66', GradientType=1);
-
+    font-family: Open-Sans, sans-serif
+}
+.container {
+    background: #fff;
+    min-height: 800px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    padding: 40px;
+}
+.btn {
+    margin: 5px;
+    min-width: 100px;
+}
+label {
+    margin-top: 5px;
 }
 
+.form-control {
+    margin: 10px 0px;
+}
 div.post {
     height: 450px;
     width: 450px;

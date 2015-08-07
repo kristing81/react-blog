@@ -7,13 +7,16 @@ class PostsController < ApplicationController
   end
 
   def show
+    render :show, layout: 'application'
   end
 
   def new
     @post = Post.new
+    render :new, layout: 'application'
   end
 
   def edit
+    render :edit, layout: 'application'
   end
 
   def create

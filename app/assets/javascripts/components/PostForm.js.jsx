@@ -18,20 +18,18 @@ window.PostForm = React.createClass({
     }
 
     return (
-      <form action={this.props.form_path} >
-        {errors}
-        <div className="field">
-          <label htmlFor="title">Title:</label>
-          <input type="text" id="title" name="post[title]" defaultValue={this.props.title} />
-        </div>
-        <div className="field">
-          <label htmlFor="body">Body:</label>
-          <input type="textarea" id="body" name="post[body]" defaultValue={this.props.body} />
-        </div>
-        <div className="actions">
-          <button type="submit">Submit</button>
-        </div>
-      </form>
+      <div className="form-group">
+          <form action={this.props.form_path} >
+            {errors}
+              <label htmlFor="title">Title:</label>
+              <input type="text" className="form-control" id="title" name="post[title]" defaultValue={this.props.title} />
+              <label htmlFor="body">Body:</label>
+              <textarea className="form-control" rows="3"id="body" name="post[body]" defaultValue={this.props.body} />
+            <div className="actions">
+              <button type="submit" className='btn btn-success'>Submit</button>
+            </div>
+        </form>
+    </div>
     );
   }
 });
