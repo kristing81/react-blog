@@ -1,4 +1,23 @@
 window.PostsIndex = React.createClass({
+    getInitialState: function () {
+        return {posts: []};
+     },
+    componentDidMount: function () {
+        this.loadPostsFromServer();
+    },
+
+    loadPostsFromServer: function () {
+        $.ajax({
+            url: this.props.url,
+            dataType: 'json',
+            success: function (posts) {
+            this.setState({posts: posts});
+            }.bind(this),
+            error: function (xhr, status, err) {
+            console.error(this.props.url, status, err.toString());
+            }.bind(this)
+        });
+    },
     render: function() {
         var posts = [];
         for(var i = 0; i < this.props.posts.length; ++i) {
@@ -29,3 +48,4 @@ window.PostsIndex = React.createClass({
         );
     }
 });
+

@@ -12,6 +12,9 @@ Bundler.require(*Rails.groups)
 
 module ReactBlog
   class Application < Rails::Application
+    # Use the responders controller from the responders gem
+    config.app_generators.scaffold_controller :responders_controller
+
     config.middleware.insert_before 'Rack::Runtime', 'Rack::Cors' do
       allow do
         origins '*'
