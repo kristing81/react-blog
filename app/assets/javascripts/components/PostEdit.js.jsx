@@ -43,7 +43,7 @@ window.PostEdit = React.createClass({
                         <h1>Editing Post</h1>
                         <PostForm {...this.props} />
                         <a href={this.props.show_path} className='btn btn-primary'>Show</a> 
-                        <a href={this.props.back_path} className='btn btn-default'>Back</a>
+                        <a href={this.props.back_path} className='btn btn-default glyphicon glyphicon-chevron-left'>Back</a>
                     </div>
                 </div>
             </div>

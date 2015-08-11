@@ -4,7 +4,7 @@ window.PostNew = React.createClass({
             <div>
                 <h1>New Post</h1>
                 <PostForm {...this.props} />
-                <a href={this.props.back_path}  className='btn btn-default'>Back</a>
+                <a href={this.props.back_path}  className='btn btn-default glyphicon glyphicon-chevron-left'>Back</a>
             </div>
         );
     }

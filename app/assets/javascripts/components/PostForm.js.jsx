@@ -29,37 +29,16 @@ window.PostForm = React.createClass({
       <div className="form-group">
           <form action={this.props.form_path} >
             {errors}
-              <label htmlFor="title">Title:</label>
-              <input type="text" className="form-control" id="title" name="post[title]" defaultValue={this.props.title} />
-              <label htmlFor="body">Body:</label>
-              <textarea className="form-control" rows="3"id="body" name="post[body]" defaultValue={this.props.body} />
+                <input type="hidden" name="id" defaultValue={this.props.id} />
+                <label htmlFor="title">Title:</label>
+                <input type="text" className="form-control" id="title" name="post[title]" defaultValue={this.props.title} />
+                <label htmlFor="body">Body:</label>
+                <textarea className="form-control" rows="3"id="body" name="post[body]" defaultValue={this.props.body} />
             <div className="actions">
-              <button type="submit" className='btn btn-success'>Submit</button>
+              <button type="submit" className='btn btn-success glyphicon glyphicon-floppy-disk'>Submit</button>
             </div>
         </form>
     </div>
     );
-  }
-});
-
-
-
-var CommentForm = React.createClass({
-  handleSubmit: function() {
-    var author = this.refs.author.getDOMNode().value.trim();
-    var comment = this.refs.comment.getDOMNode().value.trim();
-    this.props.onCommentSubmit({author: author, comment: comment});
-    this.refs.author.getDOMNode().value = '';
-    this.refs.comment.getDOMNode().value = '';
-    return false;
-  },
-  render: function() {
-    return (
-      <form className="commentForm" onSubmit={this.handleSubmit}>
-        <input type="text" placeholder="Your name" ref="author" />
-        <input type="text" placeholder="Say something..." ref="comment" />
-        <input type="submit" value="Post" />
-      </form>
-      );
   }
 });

@@ -4,7 +4,7 @@ class PostsController < ApplicationController
   
   def index
     @posts = Post.all
-    render :index, layout: 'application'
+    render "index", layout: 'application'
   end
 
   def show
@@ -43,10 +43,13 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    @post.destroy
-    respond_to do |format|
+    if @post.destroy
+      respond_to do |format|
       format.html { redirect_to posts_url }
       format.json { head :no_content }
+      end
+    else
+      render json: @post.errors, status: :unprocessable_entity
     end
   end
 

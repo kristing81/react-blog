@@ -32,17 +32,19 @@ window.PostsIndex = React.createClass({
                 </div>
             );
         }
-
         return (
             <div className="row">
-                <div className="col-md-10 col-md-offset-1">            
+                <div className="col-md-8 col-md-offset-1">            
                     <p id="notice">{this.props.notice}</p>
                     <h1>Recent Posts</h1>
                     <div>
                         {posts}
                     </div>
                     <br />
-                    <a href={this.props.new_post_path} className='btn btn-success'>New post</a>
+                    <a href={this.props.new_post_path} className='btn btn-success glyphicon glyphicon-plus'>New post</a>
+                </div>
+                <div className="col-md-1"> 
+                Calendar
                 </div>
             </div>
         );
