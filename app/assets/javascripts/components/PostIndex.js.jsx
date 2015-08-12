@@ -4,14 +4,15 @@ window.PostsIndex = React.createClass({
      },
     componentDidMount: function () {
         this.loadPostsFromServer();
+        posts: data.posts
     },
 
     loadPostsFromServer: function () {
         $.ajax({
             url: this.props.url,
             dataType: 'json',
-            success: function (posts) {
-            this.setState({posts: posts});
+            success: function (data) {
+            this.setState({posts: data});
             }.bind(this),
             error: function (xhr, status, err) {
             console.error(this.props.url, status, err.toString());
