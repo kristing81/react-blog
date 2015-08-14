@@ -10,6 +10,7 @@ window.PostEdit = React.createClass({
         $.ajax({
             url: this.props.url,
             dataType: 'json',
+             method: 'PATCH',
             success: function (data) {
             this.setState({posts: data});
             }.bind(this),
@@ -19,8 +20,6 @@ window.PostEdit = React.createClass({
         });
     },
     handlePostSubmit: function(post) {
-    var posts = this.state.posts;
-    var newPosts = posts.concat([post]);
     this.setState({posts: data});
     $.ajax({
       url: this.props.url,

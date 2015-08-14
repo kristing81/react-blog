@@ -22,23 +22,18 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
-
-    respond_to do |format|
-      if @post.save
-        render json: @post
-      else
-        render json: @post.errors, status: :unprocessable_entity
-      end
+    if @post.save
+      render json: @post
+    else
+      render json: @post.errors, status: :unprocessable_entity
     end
   end
 
   def update
-    respond_to do |format|
-      if @post.update(post_params)
-        render json: @post
-      else
-        render json: @post.errors, status: :unprocessable_entity
-      end
+    if @post.update(post_params)
+      render json: @post
+    else
+      render json: @post.errors, status: :unprocessable_entity
     end
   end
 

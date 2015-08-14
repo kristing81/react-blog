@@ -26,9 +26,10 @@ window.PostForm = React.createClass({
     }
 
     return (
-      <div className="form-group">
+      <div className="form-group" >
           <form action={this.props.form_path} >
             {errors}
+                <input type="hidden" name="_method" defaultValue={this.props.form_method} />
                 <input type="hidden" name="id" defaultValue={this.props.id} />
                 <label htmlFor="title">Title:</label>
                 <input type="text" className="form-control" id="title" name="post[title]" defaultValue={this.props.title} />
