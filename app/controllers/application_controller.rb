@@ -1,14 +1,12 @@
 require "application_responder"
 
-class ApplicationController < ActionController::API
+class ApplicationController < ActionController::Base
   self.responder = ApplicationResponder
-  respond_to :html
+  respond_to :html, :json
 
   include AbstractController::Translation
-
+  protect_from_forgery with: :null_session
   # before_action :authenticate_user_from_token!
-
-  respond_to :json
 
   def authenticate_user_from_token!
     auth_token = request.headers['Authorization']

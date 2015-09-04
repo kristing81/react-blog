@@ -1,13 +1,7 @@
 require File.expand_path('../boot', __FILE__)
 
-require "rails"
-require "active_model/railtie"
-require "active_job/railtie"
-require "active_record/railtie"
-require "action_controller/railtie"
-require "action_mailer/railtie"
-require "action_view/railtie"
-require "sprockets/railtie"
+require "rails/all"
+
 Bundler.require(*Rails.groups)
 
 module ReactBlog
@@ -24,5 +18,10 @@ module ReactBlog
       end
     end
     config.active_record.raise_in_transactional_callbacks = true
+    config.react.max_renderers = 10
+    config.react.timeout = 20
+    config.react.react_js = lambda { File.read(::Rails.application.assets.resolve('react.js')) }
+    config.react.component_filenames = ['components.js']
+    config.react.replay_console = false
   end
 end

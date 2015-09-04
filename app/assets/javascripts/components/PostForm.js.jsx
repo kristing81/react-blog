@@ -1,12 +1,4 @@
 window.PostForm = React.createClass({
-    handleSubmit: function() {
-        var title = this.refs.title.getDOMNode().value.trim();
-        var body = this.refs.body.getDOMNode().value.trim();
-        this.props.onPostSubmit({title: title, body: body});
-        this.refs.title.getDOMNode().value = '';
-        this.refs.body.getDOMNode().value = '';
-        return false;
-    },
     render: function() {
       var errors = null;
       if(this.props.errors.length > 0) {
@@ -30,11 +22,12 @@ window.PostForm = React.createClass({
           <form action={this.props.form_path} >
             {errors}
                 <input type="hidden" name="_method" defaultValue={this.props.form_method} />
-                <input type="hidden" name="id" defaultValue={this.props.id} />
+                <input type="hidden" name="authenticity_token" defaultValue={this.props.csrf_token} />
+                <input type="hidden" name="UTF-8" defaultValue="✓" />
                 <label htmlFor="title">Title:</label>
-                <input type="text" className="form-control" id="title" name="post[title]" defaultValue={this.props.title} />
+                <input type="text" className="form-control" id="title" name="post[title]"  defaultValue={this.props.title} />
                 <label htmlFor="body">Body:</label>
-                <textarea className="form-control" rows="3"id="body" name="post[body]" defaultValue={this.props.body} />
+                <textarea className="form-control" rows="3"id="body" name="post[body]"  defaultValue={this.props.body} />
             <div className="actions">
               <button type="submit" className='btn btn-success glyphicon glyphicon-floppy-disk'>Submit</button>
             </div>

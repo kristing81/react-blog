@@ -4,51 +4,53 @@ class PostsController < ApplicationController
   
   def index
     @posts = Post.all
-    render "index", layout: 'application'
   end
 
   def show
-    render :show, layout: 'application'
   end
 
   def new
     @post = Post.new
-    render :new, layout: 'application'
   end
 
   def edit
-    render :edit, layout: 'application'
   end
 
   def create
     @post = Post.new(post_params)
-    if @post.save
-      render json: @post
-    else
-      render json: @post.errors, status: :unprocessable_entity
+    respond_to do |format|
+      if @post.save
+        format.html { redirect_to @post, notice: 'Post created' }
+        format.json { render :show, status: :created, location: @post }
+      else
+        format.html { render :new }
+        format.json { render json: @post.errors, status: :unprocessable_entity }
+      end
     end
   end
 
   def update
-    if @post.update(post_params)
-      render json: @post
-    else
-      render json: @post.errors, status: :unprocessable_entity
+    respond_to do |format|
+      if @post.update(post_params)
+        format.html { redirect_to @post, notice: 'Product was successfully updated.' }
+        format.json { render :show, status: :ok, location: @post }
+      else
+        format.html { render :edit }
+        format.json { render json: @post.errors, status: :unprocessable_entity }
+      end
     end
   end
 
   def destroy
-    if @post.destroy
-      respond_to do |format|
-      format.html { redirect_to posts_url }
+    @post.destroy
+    respond_to do |format|
+      format.html { redirect_to root_url }
       format.json { head :no_content }
-      end
-    else
-      render json: @post.errors, status: :unprocessable_entity
     end
   end
 
   private
+  
     def set_post
       @post = Post.find(params[:id])
     end

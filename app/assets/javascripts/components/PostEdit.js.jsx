@@ -1,39 +1,4 @@
 window.PostEdit = React.createClass({
-    getInitialState: function () {
-        return {posts: []};
-     },
-    componentDidMount: function () {
-        this.loadPostsFromServer();
-    },
-
-    loadPostsFromServer: function () {
-        $.ajax({
-            url: this.props.url,
-            dataType: 'json',
-             method: 'PATCH',
-            success: function (data) {
-            this.setState({posts: data});
-            }.bind(this),
-            error: function (xhr, status, err) {
-            console.error(this.props.url, status, err.toString());
-            }.bind(this)
-        });
-    },
-    handlePostSubmit: function(post) {
-    this.setState({posts: data});
-    $.ajax({
-      url: this.props.url,
-      dataType: 'json',
-      type: 'PATCH',
-      data: {"post": post},
-      success: function(data) {
-        this.loadCommentsFromServer();
-      }.bind(this),
-      error: function(xhr, status, err) {
-        console.error(this.props.url, status, err.toString());
-      }.bind(this)
-    });
-  },
     render: function() {
         return (
             <div>
